@@ -30,7 +30,5 @@ Vagrant.configure("2") do |config|
     sh.path = "provision/shell/add_wordpress.sh"
   end
 
-  config.vm.provision :shell do |sh|
-    sh.path = "provision/shell/add_laravel.sh"
-  end
+  config.vm.provision :shell, :inline => "cd /vagrant && composer install"
 end
